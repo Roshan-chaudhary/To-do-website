@@ -44,4 +44,4 @@ jobs:
 
     # Optionally run the container to ensure it works
     - name: Run Docker Container
-      run: docker run -d --rm --name myapp -p 3000:3000 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-app:05
+      run: docker run -d --rm --name Frontend -p 3000:3000 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-app:05

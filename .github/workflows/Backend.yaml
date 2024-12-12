@@ -1,4 +1,4 @@
-name: Deploy to Frontend
+name: Deploy to Backend
 
 on:
   push:
@@ -44,4 +44,4 @@ jobs:
 
     # Optionally run the container to ensure it works
     - name: Run Docker Container
-      run: docker run -d --rm --name myapop -p 3000:3000 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-appp:06
+      run: docker run -d --rm --name Backend -p 3000:3000 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-appp:06
