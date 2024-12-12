@@ -8,7 +8,7 @@ function Blog() {
     title: "",
     des: "",
     
-  });
+  })
   
   const [updateId, setUpdateId] = useState(null); // State to store the ID of the post being updated
 
