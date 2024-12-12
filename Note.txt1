@@ -28,7 +28,7 @@ jobs:
 
     # Build Docker image
     - name: Build Docker Image
-      run: docker build -t my-next-js-app:05 ./client
+      run: docker build -t my-next-js-app:05 .
 
     # Tag Docker image for ECR
     - name: Tag Docker Image
