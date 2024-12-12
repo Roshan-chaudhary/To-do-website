@@ -1,32 +1,24 @@
-# Use an official Node.js runtime as a parent image
-FROM node:20 AS builder
 
-# Set the working directory
+# Use the official Node.js image as a base image
+FROM node:20-alpine
+
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json (ensure they are in the build context)
-COPY package*.json ./
+# Copy package.json and package-lock.json from client folder (if it's a Next.js app)
+COPY client/package*.json ./client/
 
-# Install dependencies
-RUN npm install
+# Install dependencies for the client app
+RUN cd client && npm install
 
 # Copy the rest of the application code
 COPY . .
 
-# Optionally build the application (uncomment if you have a build process)
-# RUN npm run build
-
-# Use another Node.js image to run the application
-FROM node:20
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the built files from the builder stage
-COPY --from=builder /app .
+# Build the Next.js application (assuming it's inside the client folder)
+RUN cd client && npm run build
 
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Command to run the application
-CMD ["npm", "start"]
+# Command to start the application
+CMD ["npm", "start", "--prefix", "client"]
