@@ -1,21 +1,32 @@
-# Use an official Node runtime as a parent image
-FROM node:20
+# Use an official Node.js runtime as a parent image
+FROM node:20 AS builder
 
-# Set working directory
-WORKDIR /usr/src/app
+# Set the working directory
+WORKDIR /app
 
-
-# Copy the package.json and package-lock.json files
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of your application code
+# Copy the rest of the application code
 COPY . .
 
-# Expose port 8002 (or the port your application uses)
-EXPOSE 80
+# Build the application (uncomment if necessary for your setup)
+# RUN npm run build
 
-# Start the application
+# Use another Node.js image to run the application
+FROM node:20
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the built files from the builder stage
+COPY --from=builder /app .
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Command to run the application
 CMD ["npm", "start"]
