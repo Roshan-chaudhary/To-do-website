@@ -1,11 +1,11 @@
 const userModel =require( "../models/blogs.js");
 const path = require("path");
-require("dotenv").config();
+require("dotenv").config()
 
 
 
 exports.createUser = async (req, res) => {
-    const { title, des } = req.body;
+    const { title, des } = req.body
     
    
   
