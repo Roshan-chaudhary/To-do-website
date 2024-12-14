@@ -1,0 +1,20 @@
+
+* 2. Steps to Build and Push a Docker Image to ECR
+
+1. Log in to ECR
+aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 767397732220.dkr.ecr.ap-south-1.amazonaws.com
+
+
+2.Pull Docker Image from ECR
+docker pull 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-app:05
+
+
+3. Run Docker Container
+docker run -d --rm --name myapep -p 3000:3000 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-app:05
+
+
+
+
+
+docker run -d -p 8002:8002 my-app:latest
+docker run -d -p 3000:3000 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-app:05

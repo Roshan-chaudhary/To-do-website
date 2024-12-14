@@ -17,7 +17,7 @@ COPY . .
 ENV NODE_ENV=production
 
 # Expose the port the app runs on
-EXPOSE 80
+EXPOSE 8002
 
 # Command to run the application
 CMD ["npm", "start"]

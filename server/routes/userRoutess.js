@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
       cb(null,`public/upload/`);     // For Direct Image in Upload remove uploads/
     },
     filename: (req, file, cb) => {
-      cb(null,file.originalname);     // Uploaded path
+      cb(null,file.originalname)    // Uploaded path
     },
   });
   

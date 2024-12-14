@@ -32,16 +32,16 @@ jobs:
 
     # Tag Docker image for ECR
     - name: Tag Docker Image
-      run: docker tag backend:06 767397732220.dkr.ecr.ap-south-1.amazonaws.com/backend:06
+      run: docker tag backend:06 050451359111.dkr.ecr.ap-south-1.amazonaws.com/backend:06
 
     # Push Docker image to Amazon ECR
     - name: Push Docker Image to ECR
-      run: docker push 767397732220.dkr.ecr.ap-south-1.amazonaws.com/backend:06
+      run: docker push 050451359111.dkr.ecr.ap-south-1.amazonaws.com/backend:06
 
     # Optionally pull the image to verify it is uploaded
     - name: Pull Docker Image from ECR
-      run: docker pull 767397732220.dkr.ecr.ap-south-1.amazonaws.com/backend:06
+      run: docker pull 050451359111.dkr.ecr.ap-south-1.amazonaws.com/backend:06
 
     # Optionally run the container to ensure it works
     - name: Run Docker Container
-      run: docker run -d --rm --name Backend-web -p 3000:3000 767397732220.dkr.ecr.ap-south-1.amazonaws.com/backend:06
+      run: docker run -d --rm --name Backend-web -p 8002:8002 050451359111.dkr.ecr.ap-south-1.amazonaws.com/backend:06
