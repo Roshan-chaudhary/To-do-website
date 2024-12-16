@@ -17,4 +17,4 @@ docker run -d --rm --name myapep -p 3000:3000 767397732220.dkr.ecr.ap-south-1.am
 
 
 docker run -d -p 8002:8002 my-app:latest
-docker run -d -p 3000:3000 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-app:05
+docker run -d -p 8002:8002 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-app:05
