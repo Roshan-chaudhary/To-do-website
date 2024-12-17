@@ -14,7 +14,7 @@ app.use( express.static("public/upload"));
 
 app.use(
     cors({
-       origin: ["http://172.17.0.2:3000/"],
+       origin: ["http://192.168.1.8:3000/"],
        methods: ["GET", "POST","PUT","DELETE"],
        credentials: true,
      })
