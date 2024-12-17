@@ -9,6 +9,7 @@ aws ecr get-login-password --region ap-south-1 | docker login --username AWS --p
 
 2.Pull Docker Image from ECR
 docker pull 767397732220.dkr.ecr.ap-south-1.amazonaws.com/frontend:05
+docker pull 767397732220.dkr.ecr.ap-south-1.amazonaws.com/backend:06
 
 
 3. Run Docker Container
@@ -25,7 +26,6 @@ connect URL with Mongodb Compass  : mongodb+srv://roshanchaudhary9997:zdOhGn1aar
 COnnect Node.js URL :              mongodb+srv://roshanchaudhary9997:zdOhGn1aarxKHxos@cluster0.s1cba.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
 Local URL  : mongodb://localhost:27017
-
 
 
 
