@@ -1,6 +1,8 @@
 
 * 2. Steps to Build and Push a Docker Image to ECR
 
+
+
 1. Log in to ECR
 aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 767397732220.dkr.ecr.ap-south-1.amazonaws.com
 
@@ -10,11 +12,34 @@ docker pull 767397732220.dkr.ecr.ap-south-1.amazonaws.com/frontend:05
 
 
 3. Run Docker Container
-docker run -d --rm --name myapep -p 3000:3000 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-app:05
+docker run -d --rm --name myapep -p 3000:3000 767397732220.dkr.ecr.ap-south-1.amazonaws.com/frontend:05
+docker run -d --rm --name myapip -p 8002:8002 767397732220.dkr.ecr.ap-south-1.amazonaws.com/backend:06
+
+
+
+// Atlash Connect free tire is finish  : Not work database is not connect 
+
+Atlash Mongodb : roshanchaudhary9997
+Password : zdOhGn1aarxKHxos
+connect URL with Mongodb Compass  : mongodb+srv://roshanchaudhary9997:zdOhGn1aarxKHxos@cluster0.s1cba.mongodb.net/
+COnnect Node.js URL :              mongodb+srv://roshanchaudhary9997:zdOhGn1aarxKHxos@cluster0.s1cba.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+Local URL  : mongodb://localhost:27017
 
 
 
 
 
-docker run -d -p 8002:8002 my-app:latest
-docker run -d -p 8002:8002 767397732220.dkr.ecr.ap-south-1.amazonaws.com/my-next-js-app:05
+
+// Build image Manually 
+
+docker build -t backend-image:latest .
+docker run -d -p 8002:8002 -e NODE_ENV=production --name backend-container backend-image:latest
+
+
+docker build -t frontend-image:latest .
+docker run -d -p 3000:3000 --name frontend-container frontend-image:latest
+
+
+
+
