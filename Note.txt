@@ -7,8 +7,9 @@
 aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 767397732220.dkr.ecr.ap-south-1.amazonaws.com
 
 
-2.Pull Docker Image from ECR
+2.Pull Docker Image from ECR   
 docker pull 767397732220.dkr.ecr.ap-south-1.amazonaws.com/frontend:05
+
 docker pull 767397732220.dkr.ecr.ap-south-1.amazonaws.com/backend:06
 
 

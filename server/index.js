@@ -14,7 +14,7 @@ app.use( express.static("public/upload"));
 
 app.use(
     cors({
-       origin: ["http://192.168.1.8:3000/"],
+       origin: ["http://192.168.1.8:3000"],
        methods: ["GET", "POST","PUT","DELETE"],
        credentials: true,
      })
@@ -22,7 +22,7 @@ app.use(
 
 
 // routes
-app.use('/', userRoutess);
+app.use('/', userRoutess)
 // Port 
 try {
     app.listen(process.env.PORT);
