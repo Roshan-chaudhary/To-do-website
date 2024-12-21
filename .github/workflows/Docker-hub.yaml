@@ -11,13 +11,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - run: docker build -t roshan602/next-js-app:04 .
-    - run: docker build -t roshan602/backend-app:01 .
+    - run: docker build -t roshan602/frontend:04 .
+    - run: docker build -t roshan602/backend:01 .
     - run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-    - run: docker push roshan602/next-js-app:04
-    - run: docker push roshan602/backend-app:01
-    - run: docker pull roshan602/next-js-app:04
-    - run: docker pull roshan602/backend-app:01
+    - run: docker push roshan602/frontend:04
+    - run: docker push roshan602/backend:01
+    - run: docker pull roshan602/frontend:04
+    - run: docker pull roshan602/backend:01
     - run: docker-compose up -d
 
 
