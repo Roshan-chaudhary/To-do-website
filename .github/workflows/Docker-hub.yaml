@@ -11,14 +11,21 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - run: docker build -t roshan602/frontend:04 .
-    - run: docker build -t roshan602/backend:01 .
+    # Build Docker images with the correct paths
+    - run: docker build -t roshan602/frontend:04 ./client
+    - run: docker build -t roshan602/backend:01 ./server
+
+    # Log in to Docker Hub
     - run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+    # Push Docker images to Docker Hub
     - run: docker push roshan602/frontend:04
     - run: docker push roshan602/backend:01
+
+    # Pull Docker images (optional, for verification)
     - run: docker pull roshan602/frontend:04
     - run: docker pull roshan602/backend:01
-    
-    - run: docker run -d --rm --name myapp -p 3000:3000  roshan602/frontend:04
-    - run: docker run -d --rm --name myapp -p 8002:8002  roshan602/backend:01
-     
+
+    # Run Docker containers
+    - run: docker run -d --rm --name frontend -p 3000:3000 roshan602/frontend:04
+    - run: docker run -d --rm --name backend -p 8002:8002 roshan602/backend:01
