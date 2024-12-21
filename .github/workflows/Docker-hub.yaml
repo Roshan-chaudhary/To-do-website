@@ -18,7 +18,7 @@ jobs:
     - run: docker push roshan602/backend:01
     - run: docker pull roshan602/frontend:04
     - run: docker pull roshan602/backend:01
-    - run: docker-compose up -d
-
-
+    
+    - run: docker run -d --rm --name myapp -p 3000:3000  roshan602/frontend:04
+    - run: docker run -d --rm --name myapp -p 8002:8002  roshan602/backend:01
      
