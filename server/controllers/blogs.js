@@ -17,7 +17,7 @@ exports.createUser = async (req, res) => {
           title,
           des,
     // Set to the value of isActive
-        })
+        });
   
         const new_user = await newUser.save();
         if (new_user) {
